@@ -1,0 +1,145 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    //Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<div class="row">*@
+<div>
+    <div>
+
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="~/Registration/images/signin-image.jpg" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">Create an account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign In</h2>
+                        <form asp-route-returnUrl="@Model.ReturnUrl" method="POST" class="register-form">
+
+                            <div class="form-group">
+                                <label asp-for="Input.Email"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Input.Password"><i class="zmdi zmdi-lock"></i></label>
+                                <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            @*<div class="form-group">
+            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+        </div>*@
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label asp-for="Input.RememberMe">
+                                        <input asp-for="Input.RememberMe" />
+                                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Log in</button>
+                            </div>
+                            @*<div class="form-group form-button">
+            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+        </div>*@
+                        </form>
+                            <section>
+                <div class="login-form-icon">
+                    <i class="fas fa-user-circle fa-9x text-secondary"></i>
+                </div>
+                <form id="account" method="post">
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    @*<div class="form-group">
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                    </div>*@
+                    <div class="form-group">
+                        <p>
+                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @*<section>
+            <div class="login-form-icon">
+                <i class="fas fa-user-circle fa-9x text-secondary"></i>
+            </div>
+            <form id="account" method="post">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </section>*@
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+@*<div class="form-group">
+    <label asp-for="Input.Email"></label>
+    <input asp-for="Input.Email" class="form-control" />
+    <span asp-validation-for="Input.Email" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Input.Password"></label>
+    <input asp-for="Input.Password" class="form-control" />
+    <span asp-validation-for="Input.Password" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <div class="checkbox">
+        <label asp-for="Input.RememberMe">
+            <input asp-for="Input.RememberMe" />
+            @Html.DisplayNameFor(m => m.Input.RememberMe)
+        </label>
+    </div>
+</div>*@

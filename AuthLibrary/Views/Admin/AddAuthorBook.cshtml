@@ -1,0 +1,37 @@
+﻿@model AuthLibrary.Models.BookEntities.BookAuthor
+
+@{
+    ViewBag.Title = "CreateAuthorBook";
+
+}
+
+<h1>AddAuthorBook</h1>
+
+<h4>BookAuthor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddAuthorBook" method="post">
+            Author Name @Html.DropDownList("AuthorId", "");
+            Book Name @Html.DropDownList("BookId", "");
+
+            @*<ul style="list-style-type:none">
+                @foreach (var book in ViewBag.Books)
+                {
+                    <li> <input type="checkbox" name="BookIds" value="@book.BookId" /> 
+                @book.Title
+                </li>
+                }
+            </ul>*@
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

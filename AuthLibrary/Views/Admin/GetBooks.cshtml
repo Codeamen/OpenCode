@@ -1,0 +1,91 @@
+﻿@model IEnumerable<AuthLibrary.Models.BookEntities.Book>
+
+@{
+    ViewData["Title"] = "GetBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetBooks</h1>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <div class="contanier">
+        <table class="table">
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.BookId)</th>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th> @Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Publisher)</th>
+                <th>@Html.DisplayNameFor(model => model.Language)</th>
+                <th>@Html.DisplayNameFor(model => model.ISBN)</th>
+                <th>@Html.DisplayNameFor(model => model.CallNumber)</th>
+                <th> @Html.DisplayNameFor(model => model.MaxIssueDays)</th>
+                <th></th>
+            </tr>
+
+            @*<div class="col-md-12">
+                <div class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BookId)
+                </div>
+            </div>*@
+            @foreach (var details in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(model => details.BookId)
+                    </td>
+                    @*<dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>*@
+                    <td>
+                        @Html.DisplayFor(model => details.Title)
+                    </td>
+                    @*<dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>*@
+                    <td>
+                        @Html.DisplayFor(model => details.Description)
+                    </td>
+                    @*<dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Publisher)
+                    </dt>*@
+                    <td>
+                        @Html.DisplayFor(model => details.Publisher)
+                    </td>
+                    @*<dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Language)
+                    </dt>*@
+                    <td>
+                        @Html.DisplayFor(model => details.Language)
+                    </td>
+                    @*<dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ISBN)
+                    </dt>*@
+                    <td>
+                        @Html.DisplayFor(model => details.ISBN)
+                    </td>
+                    @*<dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.CallNumber)
+                    </dt>*@
+                    <td>
+                        @Html.DisplayFor(model => details.CallNumber)
+                    </td>
+                    @*<dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.MaxIssueDays)
+                    </dt>*@
+                    <td>
+                        @Html.DisplayFor(model => details.MaxIssueDays)
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+   
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

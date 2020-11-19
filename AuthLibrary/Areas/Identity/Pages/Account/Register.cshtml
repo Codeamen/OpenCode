@@ -1,0 +1,150 @@
+﻿@page
+@model RegisterModel
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var roles = (List<IdentityRole>)ViewData["roles"];
+}
+
+<!-- Sign up form -->
+    <section class="signup">
+        <div class="container">
+            <ul class="nav nav-tabs card-header tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href='/Identity/Account/Login'>Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='/Identity/Account/Register'>Sign Up</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        @*<form method="POST" class="register-form" id="register-form">*@
+                        <div class="form-group">
+                            @*<label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>*@
+
+
+                            <label asp-for="Input.FirstName"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
+                            @*<input asp-for="Input.FirstName" class="form-control" />*@
+                            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="Input.LastName"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" />
+                            @*<input asp-for="Input.LastName" class="form-control" />*@
+                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="Input.Email"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                            @*<input asp-for="Input.LastName" class="form-control" />*@
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="Input.Password"><i class="zmdi zmdi-lock"></i></label>
+                            <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                            @*<input asp-for="Input.LastName" class="form-control" />*@
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="Input.ConfirmPassword"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Repeat your password" />
+                            @*<input asp-for="Input.LastName" class="form-control" />*@
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="Input.Role"><i class="zmdi zmdi-image"></i></label>
+                            <select asp-for="Input.Role" class="form-control" asp-items='new SelectList(roles,"Id","Name")'>----</select>
+                            @*<input asp-for="Input.LastName" class="form-control" />*@
+                            <span asp-validation-for="Input.Role" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                        </div>
+                        @*<button type="submit" class="btn btn-primary">Register</button>*@
+                        @*<div class="form-group">
+            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+            <input type="password" name="pass" id="pass" placeholder="Password" />
+        </div>
+        <div class="form-group">
+            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+            <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+        </div>
+        <div class="form-group form-button">
+            <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+        </div>*@
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="~/Registration/images/signup-image.jpg"></figure>
+                    <a href="#" class="signup-image-link">I am already member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+@*<div class="form-group">
+    <label asp-for="Input.FirstName"></label>
+    <input asp-for="Input.FirstName" class="form-control" />
+    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+</div>
+
+
+<div class="form-group">
+    <label asp-for="Input.LastName"></label>
+    <input asp-for="Input.LastName" class="form-control" />
+    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Input.Email"></label>
+    <input asp-for="Input.Email" class="form-control" />
+    <span asp-validation-for="Input.Email" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Input.Password"></label>
+    <input asp-for="Input.Password" class="form-control" />
+    <span asp-validation-for="Input.Password" class="text-danger"></span>
+</div>
+
+
+<div class="form-group">
+    <label asp-for="Input.ConfirmPassword"></label>
+    <input asp-for="Input.ConfirmPassword" class="form-control" />
+    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+</div>
+
+<button type="submit" class="btn btn-primary">Register</button>*@
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
